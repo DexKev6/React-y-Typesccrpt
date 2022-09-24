@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "start": "node App.js"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "name": "react-y-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DexKev6/React-y-Typesccrpt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DexKev6/React-y-Typesccrpt/issues"
+  },
+  "homepage": "https://github.com/DexKev6/React-y-Typesccrpt#readme",
+  "description": ""
+}
