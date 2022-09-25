@@ -1,36 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import List from './components/List';
+import Form from './components/Form';
+import { Sub } from './types'; //las estenciones punto lo que se no va (.d)
 
 
-  const INITIAL_STATE =  [ 
-     {
-       nick: 'dapelu',
-       subMonths: 3,
-       avatar: 'https://i.pravatar.cc/150?u=dapelu',  //un servicio para imagenes de avatars
-       description: 'dapelu do moder'
-     },
-     {
-       nick: 'sergio_serrano',
-       subMonths: 3,
-       avatar: 'https://i.pravatar.cc/150?u=sergio-serrano'
-     }
-   ]
 
 
-//forma pro
-interface Sub{
-  nick: string,
-  subMonths: number,
-  avatar: string,
-  description?: string //Opcional
+
+//Recomendacion de separar el estado del componente 
+//Hacerlo como interfaz y poner todos los estados que puede tener tu componente
+interface AppState{
+  subs:   Array<Sub>  //Sub[] Otra forma
+  newSubsNumber: number
 }
+
+
+const INITIAL_STATE =  [ 
+  {
+    nick: 'dapelu',
+    subMonths: 3,
+    avatar: 'https://i.pravatar.cc/150?u=dapelu',  //un servicio para imagenes de avatars
+    description: 'dapelu do moder'
+  },
+  {
+    nick: 'sergio_serrano',
+    subMonths: 3,
+    avatar: 'https://i.pravatar.cc/150?u=sergio-serrano'
+  }
+]
 
 
 function App() {
 
 
-  const [subs, setSubs] = useState  <Array<Sub>>([]) //forma pro
+  //Con interface
+  
+  const [subs, setSubs] = useState  <AppState["subs"]>([])
+  const [newSubsNumber, setNewSubsNumber] = useState<AppState["newSubsNumber"]>(0)
+
+  const divRef = useRef<HTMLDivElement>(null)
+  //Sin interface
+  //const [subs, setSubs] = useState  <Array<Sub>>([]) //forma pro
+  //const [subs, setSubs] = useState  <Sub[]> //Otra forma de definirlo
+
 
 //Primera renderizacion
 
@@ -55,12 +69,20 @@ useEffect(()=>{
   //   }
   // ])
 
-
+const handleNewSub = (newSub: Sub): void => {
+  setSubs(subs => [...subs, newSub])
+}
 
   return (
-    <div className="App">
+    <div className="App" ref={divRef}>
 
-    <h1>Dex sub</h1>
+      <h1>Dex sub</h1>
+    <List subs={subs}/>
+    <Form onNewSub={handleNewSub}/>
+
+
+    {/* Lo paso a un componente para mayor organizacion
+     
     <ul>
       {
         subs.map(subs => {
@@ -73,7 +95,7 @@ useEffect(()=>{
           )
         })
       }
-    </ul>
+    </ul> */}
 
     </div>
   );
