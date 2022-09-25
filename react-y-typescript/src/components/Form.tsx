@@ -126,7 +126,7 @@ dentro del form se pondria:
         <div>
             <form onSubmit={handleSumit}>
                 <input onChange={handleChange} value={inputValues.nick} type="text"  name="nick" placeholder="nick"/>
-                <input onChange={handleChange} value={inputValues.subMonths} type="text"  name="subMonth" placeholder="subMonth"/>
+                <input onChange={handleChange} value={inputValues.subMonths} type="number"  name="subMonth" placeholder="subMonth"/>
                 <input onChange={handleChange} value={inputValues.avatar} type="text"  name="avatar" placeholder="avatar"/>
                 <textarea onChange={handleChange} value={inputValues.description}   name="description" placeholder="description"/>
                 ,<button onClick={handleClear} type='button'>Clear the form</button>

@@ -7,3 +7,11 @@ export interface Sub{
     avatar: string,
     description?: string //Opcional
   }
+
+
+  export type SubResponseFromApi = Array <{
+    nick: string,
+    subMonths: number,
+    avatar: string,
+    description?: string //Opcional
+  }>

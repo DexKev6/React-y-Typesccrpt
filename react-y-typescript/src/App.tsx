@@ -17,19 +17,19 @@ interface AppState{
 }
 
 
-const INITIAL_STATE =  [ 
-  {
-    nick: 'dapelu',
-    subMonths: 3,
-    avatar: 'https://i.pravatar.cc/150?u=dapelu',  //un servicio para imagenes de avatars
-    description: 'dapelu do moder'
-  },
-  {
-    nick: 'sergio_serrano',
-    subMonths: 3,
-    avatar: 'https://i.pravatar.cc/150?u=sergio-serrano'
-  }
-]
+// const INITIAL_STATE =  [  vuela
+//   {
+//     nick: 'dapelu',
+//     subMonths: 3,
+//     avatar: 'https://i.pravatar.cc/150?u=dapelu',  //un servicio para imagenes de avatars
+//     description: 'dapelu do moder'
+//   },
+//   {
+//     nick: 'sergio_serrano',
+//     subMonths: 3,
+//     avatar: 'https://i.pravatar.cc/150?u=sergio-serrano'
+//   }
+// ]
 
 
 function App() {
@@ -49,7 +49,15 @@ function App() {
 //Primera renderizacion
 
 useEffect(()=>{
-  setSubs(INITIAL_STATE)
+//  setSubs(INITIAL_STATE) vuela yua no se necesita 
+  const fethSubs = (): Promise<any/**Aqui puede poner la api */> => {
+   return fetch('http://localhost:3000/subs')  .then(res => res.json())
+  }
+  fethSubs()
+  .then(subs => {
+    console.log(subs)
+    setSubs(subs)
+  })
 },[])
 
 
@@ -71,6 +79,7 @@ useEffect(()=>{
 
 const handleNewSub = (newSub: Sub): void => {
   setSubs(subs => [...subs, newSub])
+  setNewSubsNumber(  n => n+1)
 }
 
   return (
@@ -78,8 +87,9 @@ const handleNewSub = (newSub: Sub): void => {
 
       <h1>Dex sub</h1>
     <List subs={subs}/>
+    New subs: {newSubsNumber}
     <Form onNewSub={handleNewSub}/>
-
+    
 
     {/* Lo paso a un componente para mayor organizacion
      
