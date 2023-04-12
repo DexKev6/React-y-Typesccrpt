@@ -1,19 +1,16 @@
-import React from "react";
+import React, {Component} from "react";
 import Nav from "./Componentes/Nav";
 import ActionsMenu from "./Componentes/ActionsMenu";
 import Tabla from "./Componentes/Tabla";
 import Modal from "./Componentes/Modal";
-function Mascotas() {
 
+class Pagina extends Component  { //Clases al estilo Java 
 
+render(){
     return (
         <>
             <div className="container">
-
-                {/* aqui iba el nav */}
                 <Nav />
-
-                {/* ActionsMenu */}
 
                 <ActionsMenu />
 
@@ -23,6 +20,8 @@ function Mascotas() {
             </div >
         </>
     );
+}
+    
 
 }
 

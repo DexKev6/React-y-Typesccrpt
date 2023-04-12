@@ -1,4 +1,6 @@
 import React from 'react';
+import ModalHeader from './ModalHeader';
+import Select from '../Select';
 
 function Modal() {
     return (
@@ -6,26 +8,12 @@ function Modal() {
         <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
-                    <div className="modal-header">
-                        <h1 className="modal-title fs-5" id="exampleModalLabel">Nueva mascota</h1>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                    <ModalHeader />
                     <div className="modal-body">
 
                         <form id="form">
                             <input type="hidden" id="indice" />
-                            <div className="row">
-                                <div className="col">
-                                    <label className="visually-hidden" for="specificSizeSelect">Preference</label>
-                                    <select id="tipo" className="form-select">
-                                        <option selected>Tipo de animal</option>
-                                        <option value="Perro">Perro</option>
-                                        <option value="Gato">Gato</option>
-                                        <option value="Pajaro">Pajaro</option>
-                                        <option value="Otro">Otro</option>
-                                    </select>
-                                </div>
-                            </div>
+                           <Select/>
                             <div className="row">
                                 <div className="col">
                                     <input type="text" id="nombre" name="nombre" className="form-control"

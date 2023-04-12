@@ -1,4 +1,5 @@
 import React from "react";
+import BotonAccion from "../BotonAccion";
 
 function Fila({mascota, index}) {
     return (
@@ -9,8 +10,10 @@ function Fila({mascota, index}) {
             <td>{mascota.dueno}</td>
             <td>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-info editar" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
-                    <button type="button" class="btn btn-danger eliminar">Eliminar</button>
+                 
+                   <BotonAccion tipo = "editar"/>
+                   <BotonAccion tipo = "eliminar"/>
+                   
                 </div>
             </td>
         </tr>
