@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function Alert(props) {  //props para agregar propiedades 
+function Alert({alertSwitch = () => {}}) {  //props para agregar propiedades 
 
     return (
         <div className="alert alert-danger alert-dismissible" role="alert">
@@ -11,7 +11,7 @@ function Alert(props) {  //props para agregar propiedades
         className="btn-close" 
         data-bs-dismiss="alert" 
         aria-label="Close"
-        onClick={props.alertSwitch}
+        onClick={alertSwitch}
         ></button>
     </div> 
 
