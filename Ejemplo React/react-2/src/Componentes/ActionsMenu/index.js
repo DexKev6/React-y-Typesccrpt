@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import Alert from "../Alert";
+import React from 'react';
+import "./ActionMenu.css"
+//import Alert from "../Alert";
 
 function ActionsMenu({cambiarModal = () => {}}) {
 
@@ -9,7 +10,10 @@ function ActionsMenu({cambiarModal = () => {}}) {
         <div className="actions-menu">
             <h1>Mascotas</h1>
             <div className="actions-menu-content">
-                <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <button type="button" 
+                className="btn btn-primary" 
+                data-bs-toggle="modal" 
+                data-bs-target="#exampleModal"
                     data-bs-whatever="@mdo"
                     onClick={cambiarModal }
                     

@@ -1,21 +1,17 @@
 
-import React, { useState } from 'react';
+import React  from 'react';
 import styled from 'styled-components';
-import BurgerButton from './BurgerButton';
+//import BurgerButton from './BurgerButton';
 
 function Nav() {
 
-    const [clicked, setClicked] = useState(false)
-    const handleClick = () => {
-        //Cuando estra true lo cambia a false y biserversa
-        setClicked(!clicked)
-    }
+    
     return (
         <>
             <Navbar className="navbar" >
                 <h2>Veterinaria </h2>
 
-                <div className={`links ${clicked ? 'active' : ''}`}  >
+                <div className={`links`}  >
 
                     <ul  >
                         <li >
@@ -35,10 +31,7 @@ function Nav() {
                     </ul>
 
                 </div>
-                <div className='burguer'>
-                    <BurgerButton clicked={clicked} handleClick={handleClick}/>
-                </div>
-                <BgDiv className={`initial ${clicked ? 'active' : ''}`}/>
+                
             </Navbar>
         </>
     );
@@ -112,27 +105,4 @@ h2{
       display: none;
     }
   }
-`
-
-const BgDiv = styled.div`
-  background-color: #333;
-  position: absolute;
-  top: -1000px;
-  left: -1000px;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  transition: all .6s ease ;
-  
-  &.active{
-    background-color: #333;
-    border-radius: 0 0 80% 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-  }
- 
-
 `

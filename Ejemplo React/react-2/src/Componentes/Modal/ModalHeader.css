@@ -1,4 +1,7 @@
 .modal-header{
+    height: 200px;
+    width: 200px;
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

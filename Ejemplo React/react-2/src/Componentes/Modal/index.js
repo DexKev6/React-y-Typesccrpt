@@ -2,25 +2,27 @@ import React from 'react';
 import ModalHeader from './ModalHeader';
 import Select from '../Select';
 import "./Modal.css"
+import Input from '../Input';
+import ModalFooter from './ModalFooter';
 
 const tiposMascotas = [
-                                            
-                                               
-    {valor: "Perro",etiqueta: "Perro"},
-    {valor: "Gato",etiqueta: "Gato"},
-    {valor: "Pajaro",etiqueta: "Pajaro"},
-    {valor: "Otro",etiqueta: "Otro"},
- 
+
+
+    { valor: "Perro", etiqueta: "Perro" },
+    { valor: "Gato", etiqueta: "Gato" },
+    { valor: "Pajaro", etiqueta: "Pajaro" },
+    { valor: "Otro", etiqueta: "Otro" },
+
 ]
 
 
-function Modal() {
+function Modal({cambiarModal = () => {}}) {
     return (
         <>
             <div className="modal" >
                 <div className="modal-dialog  modal-dialog-centered">
                     <div className="modal-content">
-                        <ModalHeader />
+                        <ModalHeader cambiarModal = {cambiarModal}/>
                         <div className="modal-body">
 
                             <form id="form">
@@ -29,34 +31,14 @@ function Modal() {
                                         <Select options={tiposMascotas} nombreCampo="Tipo animal" />
                                     </div>
                                 </div>
-                                        <input type="text"
-                                            id="nombre"
-                                            name="nombre"
-                                            className="form-control"
-                                            placeholder="Nombre"
+                                <Input tipo="text" nombreCampo="nombre" />
+                                <Input tipo="text" nombreCampo="dueno" />
 
-                                        />
-
-
-                                    <div className="col">
-                                        <input type="text"
-                                            id="dueno"
-                                            name="dueno"
-                                            className="form-control"
-                                            placeholder="Dueño"
-
-                                        />
-                                    </div>
 
                             </form>
 
                         </div>
-                        <div className="modal-footer">
-
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" className="btn btn-primary" data-bs-dismiss="modal"
-                                id="btn-guardar">Crear</button>
-                        </div>
+                        <ModalFooter cambiarModal= {cambiarModal}/>
                     </div>
                 </div>
             </div>
