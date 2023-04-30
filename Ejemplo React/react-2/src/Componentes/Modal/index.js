@@ -16,29 +16,50 @@ const tiposMascotas = [
 ]
 
 
-function Modal({cambiarModal = () => {}}) {
+function Modal({
+    cambiarModal = () => { },
+    manejarInput = () => { },
+    crearEntidad = () => { }
+}) {
     return (
         <>
             <div className="modal" >
                 <div className="modal-dialog  modal-dialog-centered">
                     <div className="modal-content">
-                        <ModalHeader cambiarModal = {cambiarModal}/>
+                        <ModalHeader cambiarModal={cambiarModal} />
                         <div className="modal-body">
 
                             <form id="form">
                                 <div className="row">
                                     <div className="col">
-                                        <Select options={tiposMascotas} nombreCampo="Tipo animal" />
+                                        <Select
+                                            nombreCampo="tipo"
+                                            options={tiposMascotas}
+                                            onChange={manejarInput}
+                                            placeholder="Tipo Animal" />
                                     </div>
                                 </div>
-                                <Input tipo="text" nombreCampo="nombre" />
-                                <Input tipo="text" nombreCampo="dueno" />
+                                <Input
+                                    nombreCampo="nombre"
+                                    tipo="text"
+                                    onInput={manejarInput}
+                                    placeholder="Nombre"
+                                />
+                                <Input
+                                    nombreCampo="dueno"
+                                    tipo="text"
+                                    onInput={manejarInput}
+                                    placeholder="Dueño"
+                                />
 
 
                             </form>
 
                         </div>
-                        <ModalFooter cambiarModal= {cambiarModal}/>
+                        <ModalFooter 
+                        cambiarModal={cambiarModal} 
+                        crearEntidad={crearEntidad}
+                        />
                     </div>
                 </div>
             </div>

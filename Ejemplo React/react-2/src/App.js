@@ -4,7 +4,7 @@ import Pagina from './Pagina';
 
 function App() {
   return (
-    <Pagina />
+    <Pagina titulo ="Mascota" entidad = "mascotas"/>
   );
 }
 

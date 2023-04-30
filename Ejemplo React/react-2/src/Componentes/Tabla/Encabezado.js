@@ -5,11 +5,13 @@ function Encabezado(props) {
     return(
         <thead className="table-dark">
         <tr>
-            <th scope="col">#</th>
-            {props.columnas.map((columna)=>
-            (<th scope="col">{columna}</th>)
-            )}
-            <th scope="col"></th>
+        <th scope="col">#</th>
+        {props.columnas.map((columna, index) => (
+          <th key={`titulo-${index}`} scope="col">
+            {columna}
+          </th>
+        ))}
+        <th scope="col"></th>
         </tr>
     </thead>
     )
