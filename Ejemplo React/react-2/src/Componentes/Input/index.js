@@ -7,6 +7,7 @@ function Input({
     nombreCampo,
     onInput = () => { },
     placeholder,
+    value="",
 
 }) {
     return (
@@ -16,6 +17,7 @@ function Input({
             className="form-control"
             placeholder={placeholder}
             onInput={onInput}
+            defaultValue={value}
 
         />
 

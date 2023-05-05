@@ -19,7 +19,8 @@ const tiposMascotas = [
 function Modal({
     cambiarModal = () => { },
     manejarInput = () => { },
-    crearEntidad = () => { }
+    crearEntidad = () => { },
+    objeto = () => { },
 }) {
     return (
         <>
@@ -36,7 +37,10 @@ function Modal({
                                             nombreCampo="tipo"
                                             options={tiposMascotas}
                                             onChange={manejarInput}
-                                            placeholder="Tipo Animal" />
+                                            placeholder="Tipo Animal"
+                                            value = {objeto.tipo}
+                                             />
+
                                     </div>
                                 </div>
                                 <Input
@@ -44,12 +48,14 @@ function Modal({
                                     tipo="text"
                                     onInput={manejarInput}
                                     placeholder="Nombre"
+                                    value = {objeto.tipo}
                                 />
                                 <Input
                                     nombreCampo="dueno"
                                     tipo="text"
                                     onInput={manejarInput}
                                     placeholder="Dueño"
+                                    value = {objeto.tipo}
                                 />
 
 
